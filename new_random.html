@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Using the XMLHttpRequest Object</h2>
+
+<div id="demo">
+<button type="button" onclick="loadXMLDoc()">Change Content</button>
+</div>
+
+<script>
+    function loadXMLDoc() {
+    let xhr = new XMLHttpRequest();
+    let url = 'https://api.unsplash.com/photos/?client_id=XeMLEo-cG4umamAaRPxahF5CC7nhdSYGtbKlmU1O7Sk'
+    xhr.open('GET', url, true);
+    xhr.onload = function() {
+        if(this.status >= 200 && this.status < 400) {
+            let response = JSON.parse(this.response)
+            console.log(response)}
+    };
+    xhr.onerror = function() {
+    };
+    xhr.send()
+    }
+</script>
+
+</body>
+</html>
